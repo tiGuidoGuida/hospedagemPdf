@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualizador de PDF</title>
+
+    <!-- Inclua a biblioteca Viewer.js -->
+    <link rel="stylesheet" href="caminho/para/viewer.css" />
+    <script src="caminho/para/viewer.js"></script>
+
+    <style>
+      body {
+        background-color: #09565f;
+
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        color: #bcdcdb;
+      }
+
+      #download-button {
+        margin-top: 10px;
+        background-color: #096c77;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #bcdcdb;
+        font-size: 18px;
+      }
+
+      #pdf {
+        width: 90%;
+        height: 550px;
+      }
+      @media (max-width: 767px) {
+        #pdf {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Link para baixar o PDF -->
+    <a id="download-button" href="seu_arquivo.pdf" download>Baixar PDF</a>
+    <!-- O container do PDF -->
+
+    <iframe id="pdf" src="seu_arquivo.pdf"></iframe>
+
+    <script>
+      // Configuração do Viewer.js
+      var viewer = new Viewer(document.getElementById('pdf-container'), {
+        toolbar: {
+          download: {
+            show: false // Não mostrar o botão de download padrão do Viewer.js
+          }
+        }
+      })
+
+      // Chame a função para inicializar o Viewer.js
+      viewer.show('seu_arquivo.pdf')
+    </script>
+  </body>
+</html>
